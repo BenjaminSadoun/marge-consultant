@@ -1,0 +1,271 @@
+:root {
+  --luca-yellow: #fab400;
+  --luca-yellow-light: #ffecbb;
+  --luca-black: #1e1e1e;
+  --luca-white: #ffffff;
+
+  --page-grad-start: var(--luca-yellow-light);
+  --page-grad-end: var(--luca-yellow);
+  --card-bg: var(--luca-white);
+  --inner-bg: var(--luca-white);
+  --ink: var(--luca-black);
+  --ink-secondary: #55524b;
+  --ink-muted: #8a857b;
+  --border-ink: var(--luca-black);
+  --accent: var(--luca-yellow);
+  --track: var(--luca-yellow-light);
+  --green-stroke: #2f7a3d;
+  --green-text: #1f5229;
+  --yellow-stroke: #c99a00;
+  --yellow-text: #7a5f00;
+  --orange-stroke: #d1661a;
+  --orange-text: #8a3f10;
+  --red-stroke: #c03530;
+  --red-text: #7a211d;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --page-grad-start: #2a2200;
+    --page-grad-end: #4a3b00;
+    --card-bg: #1e1e1e;
+    --inner-bg: #1e1e1e;
+    --ink: #f5f2ea;
+    --ink-secondary: #cfc9ba;
+    --ink-muted: #948e7d;
+    --border-ink: var(--luca-yellow);
+    --track: #3a3320;
+    --green-stroke: #4caf5f;
+    --green-text: #8fe39c;
+    --yellow-stroke: #e6b800;
+    --yellow-text: #ffd54a;
+    --orange-stroke: #ef8a3d;
+    --orange-text: #ffb673;
+    --red-stroke: #e35b56;
+    --red-text: #ff8b86;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 24px 16px;
+  background: linear-gradient(135deg, var(--page-grad-start) 0%, var(--page-grad-end) 100%);
+  font-family: "Outfit", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  color: var(--ink);
+}
+
+.app-card {
+  width: 100%;
+  max-width: 380px;
+  background: var(--card-bg);
+  border: 2px solid var(--border-ink);
+  border-radius: 8px;
+  padding: 22px 18px 26px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.brand-title {
+  margin: 0;
+  font-family: "Bebas Neue", "Outfit", sans-serif;
+  font-weight: 400;
+  font-size: 26px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-align: center;
+  color: var(--ink);
+}
+
+.top-row {
+  display: flex;
+  gap: 8px;
+}
+
+.select {
+  height: 42px;
+  border-radius: 4px;
+  border: 1.5px solid var(--border-ink);
+  background: var(--inner-bg);
+  color: var(--ink);
+  font-family: "Outfit", sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  padding: 0 8px;
+}
+
+.select:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+}
+
+.top-row .select:first-child {
+  flex: 1.6;
+  min-width: 0;
+}
+
+.lang-select {
+  width: 68px;
+  font-size: 12px;
+  padding: 0 4px;
+  text-align: center;
+}
+
+.segmented {
+  display: flex;
+  background: transparent;
+  border: 1.5px solid var(--border-ink);
+  border-radius: 6px;
+  padding: 3px;
+  gap: 3px;
+}
+
+.segmented button {
+  flex: 1;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 0;
+  font-family: "Outfit", sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  cursor: pointer;
+  background: transparent;
+  color: var(--ink-secondary);
+}
+
+.segmented button.active {
+  background: var(--ink);
+  color: var(--card-bg);
+}
+
+.sub-segmented {
+  border-color: var(--ink-muted);
+  margin-top: -8px;
+}
+
+.sub-segmented button {
+  font-size: 11px;
+  padding: 7px 0;
+}
+
+.sub-segmented button.active {
+  background: var(--accent);
+  color: var(--ink);
+}
+
+.fields-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.field label {
+  font-family: "Outfit", sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  display: block;
+  margin-bottom: 4px;
+}
+
+.field input {
+  width: 100%;
+  height: 42px;
+  border-radius: 4px;
+  border: 1.5px solid var(--border-ink);
+  background: var(--inner-bg);
+  color: var(--ink);
+  font-family: "Outfit", sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  padding: 0 10px;
+}
+
+.field input:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+}
+
+.field-internal,
+.field-external {
+  display: none;
+}
+
+.result {
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  padding-top: 4px;
+}
+
+.gauge-block {
+  flex: 1;
+  max-width: 160px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.gauge-label {
+  font-family: "Outfit", sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  text-align: center;
+}
+
+.gauge-track {
+  stroke: var(--track);
+}
+
+.gauge-block svg text {
+  fill: var(--ink);
+  font-family: "Bebas Neue", "Outfit", sans-serif;
+  font-weight: 400;
+}
+
+.margin-value {
+  font-family: "Outfit", sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: var(--ink-secondary);
+  text-align: center;
+}
+
+@media (max-width: 380px) {
+  .app-card {
+    border-radius: 6px;
+    padding: 18px 14px 22px;
+  }
+
+  .result {
+    gap: 10px;
+  }
+
+  .gauge-block svg {
+    width: 118px;
+    height: 118px;
+  }
+}
