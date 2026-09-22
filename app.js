@@ -1,6 +1,6 @@
 (function () {
   var STORAGE_KEY = 'margeConsultant_v1';
-  var GAUGE_R = 66;
+  var GAUGE_R = 73;
   var CIRC = 2 * Math.PI * GAUGE_R;
   var K2_INTERNAL_FACTOR = 2;
   var K2_PORTAGE_FACTOR = 1.2;

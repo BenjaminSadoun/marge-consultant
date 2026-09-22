@@ -73,17 +73,17 @@ body {
   background: var(--card-bg);
   border: 2px solid var(--border-ink);
   border-radius: 8px;
-  padding: 24px 22px 28px;
+  padding: 26px 22px 30px;
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  gap: 20px;
 }
 
 .brand-title {
   margin: 0;
   font-family: "Bebas Neue", "Outfit", sans-serif;
   font-weight: 400;
-  font-size: 30px;
+  font-size: 34px;
   letter-spacing: 0.06em;
   text-transform: uppercase;
   text-align: center;
@@ -96,13 +96,13 @@ body {
 }
 
 .select {
-  height: 48px;
+  height: 54px;
   border-radius: 4px;
   border: 1.5px solid var(--border-ink);
   background: var(--inner-bg);
   color: var(--ink);
   font-family: "Outfit", sans-serif;
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 600;
   letter-spacing: 0.03em;
   text-transform: uppercase;
@@ -120,8 +120,8 @@ body {
 }
 
 .lang-select {
-  width: 76px;
-  font-size: 13px;
+  width: 82px;
+  font-size: 14px;
   padding: 0 4px;
   text-align: center;
 }
@@ -139,9 +139,9 @@ body {
   flex: 1;
   border: none;
   border-radius: 4px;
-  padding: 13px 0;
+  padding: 15px 0;
   font-family: "Outfit", sans-serif;
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 600;
   letter-spacing: 0.05em;
   text-transform: uppercase;
@@ -161,8 +161,8 @@ body {
 }
 
 .sub-segmented button {
-  font-size: 12px;
-  padding: 9px 0;
+  font-size: 13px;
+  padding: 10px 0;
 }
 
 .sub-segmented button.active {
@@ -173,29 +173,29 @@ body {
 .fields-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 12px;
+  gap: 14px;
 }
 
 .field label {
   font-family: "Outfit", sans-serif;
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 600;
   letter-spacing: 0.05em;
   text-transform: uppercase;
   color: var(--ink-muted);
   display: block;
-  margin-bottom: 5px;
+  margin-bottom: 6px;
 }
 
 .field input {
   width: 100%;
-  height: 50px;
+  height: 56px;
   border-radius: 4px;
   border: 1.5px solid var(--border-ink);
   background: var(--inner-bg);
   color: var(--ink);
   font-family: "Outfit", sans-serif;
-  font-size: 18px;
+  font-size: 19px;
   font-weight: 500;
   padding: 0 10px;
 }
@@ -219,16 +219,16 @@ body {
 
 .gauge-block {
   flex: 1;
-  max-width: 190px;
+  max-width: 205px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 6px;
+  gap: 8px;
 }
 
 .gauge-label {
   font-family: "Outfit", sans-serif;
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 600;
   letter-spacing: 0.05em;
   text-transform: uppercase;
@@ -248,7 +248,7 @@ body {
 
 .margin-value {
   font-family: "Outfit", sans-serif;
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 500;
   letter-spacing: 0.02em;
   color: var(--ink-secondary);
@@ -258,7 +258,7 @@ body {
 @media (max-width: 380px) {
   .app-card {
     border-radius: 6px;
-    padding: 20px 16px 24px;
+    padding: 22px 16px 26px;
   }
 
   .result {
@@ -266,7 +266,7 @@ body {
   }
 
   .gauge-block svg {
-    width: 135px;
-    height: 135px;
+    width: 145px;
+    height: 145px;
   }
 }
