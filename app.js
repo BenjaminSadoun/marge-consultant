@@ -4,7 +4,8 @@
   var CIRC = 2 * Math.PI * GAUGE_R;
   var K2_INTERNAL_FACTOR = 2;
   var K2_PORTAGE_FACTOR = 1.2;
-  var K2_FREELANCE_EXTRA_COST = 100;
+  var K2_PORTAGE_THRESHOLD = 500;
+  var K2_EXTRA_COST = 100;
 
   var COUNTRY_LANG = { fr: 'fr', es: 'es', it: 'it', ch: 'en', be: 'fr' };
 
@@ -168,9 +169,13 @@
         marginPctK2 = s > 0 ? (marginValueK2 / s) * 100 : 0;
         paintGauge(els.ringK2, els.pctK2, marginPctK2, colorForInternal(marginPctK2));
       } else {
-        marginValueK2 = state.externalMode === 'portage'
-          ? s - pur * K2_PORTAGE_FACTOR - dly
-          : s - (pur + K2_FREELANCE_EXTRA_COST) - dly;
+        if (state.externalMode === 'portage') {
+          marginValueK2 = pur >= K2_PORTAGE_THRESHOLD
+            ? s - (pur + K2_EXTRA_COST) - dly
+            : s - pur * K2_PORTAGE_FACTOR - dly;
+        } else {
+          marginValueK2 = s - (pur + K2_EXTRA_COST) - dly;
+        }
         marginPctK2 = s > 0 ? (marginValueK2 / s) * 100 : 0;
         paintGauge(els.ringK2, els.pctK2, marginPctK2, colorForExternal(marginPctK2));
       }
