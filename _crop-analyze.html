@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"></head>
+<body>
+<img id="src" src="_meo-source.png" crossorigin="anonymous">
+<canvas id="cv"></canvas>
+<script>
+window.analyze = function() {
+  var img = document.getElementById('src');
+  var cv = document.getElementById('cv');
+  cv.width = img.naturalWidth;
+  cv.height = img.naturalHeight;
+  var ctx = cv.getContext('2d');
+  ctx.drawImage(img, 0, 0);
+  var w = cv.width, h = cv.height;
+  var data = ctx.getImageData(0, 0, w, h).data;
+
+  function colHasInk(x) {
+    for (var y = 0; y < h; y++) {
+      var i = (y * w + x) * 4;
+      var r = data[i], g = data[i+1], b = data[i+2], a = data[i+3];
+      if (a > 10 && !(r > 245 && g > 245 && b > 245)) return true;
+    }
+    return false;
+  }
+
+  var colInk = [];
+  for (var x = 0; x < w; x++) colInk.push(colHasInk(x));
+
+  var segments = [];
+  var inSeg = false, segStart = 0;
+  for (var x = 0; x < w; x++) {
+    if (colInk[x] && !inSeg) { inSeg = true; segStart = x; }
+    if (!colInk[x] && inSeg) { inSeg = false; segments.push([segStart, x - 1]); }
+  }
+  if (inSeg) segments.push([segStart, w - 1]);
+
+  return JSON.stringify({ width: w, height: h, segments: segments });
+};
+</script>
+</body>
+</html>
