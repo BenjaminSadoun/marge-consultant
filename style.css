@@ -219,7 +219,7 @@ body {
 
 .gauge-block {
   flex: 1;
-  max-width: 160px;
+  max-width: 190px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -266,7 +266,7 @@ body {
   }
 
   .gauge-block svg {
-    width: 118px;
-    height: 118px;
+    width: 135px;
+    height: 135px;
   }
 }
